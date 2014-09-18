@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>46B258F4-E07F-4D6E-87A5-BB287322E973</string>
+	<key>IDESourceControlProjectName</key>
+	<string>tips</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BAE3264162FAD5C27B02BC7070FDA2C771F9FD57</key>
+		<string>https://github.com/mquesada/Courses.git</string>
+		<key>E9A09D01E99354720A9ED7945D7EFFD7AEE727AD</key>
+		<string>https://github.com/mquesada/tipcalculator-swift.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tips/tips.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BAE3264162FAD5C27B02BC7070FDA2C771F9FD57</key>
+		<string>../../../../..</string>
+		<key>E9A09D01E99354720A9ED7945D7EFFD7AEE727AD</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mquesada/tipcalculator-swift.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E9A09D01E99354720A9ED7945D7EFFD7AEE727AD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BAE3264162FAD5C27B02BC7070FDA2C771F9FD57</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E9A09D01E99354720A9ED7945D7EFFD7AEE727AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tipcalculator-swift</string>
+		</dict>
+	</array>
+</dict>
+</plist>

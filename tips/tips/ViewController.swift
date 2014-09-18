@@ -10,10 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
                             
-    @IBOutlet weak var billField: UITextField
-    @IBOutlet weak var tipLabel: UILabel
-    @IBOutlet weak var totalLabel: UILabel
-    @IBOutlet var tipControl: UISegmentedControl
+    @IBOutlet weak var billField: UITextField!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipLabelValue: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet var tipControl: UISegmentedControl!
+    
+    @IBOutlet weak var container: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,8 @@ class ViewController: UIViewController {
         var defaultTipIndex = defaults.integerForKey("defaultTipIndex")
         tipControl.selectedSegmentIndex = defaultTipIndex
         
+        initForAnimations()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,18 +36,34 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onEditingChange(sender: AnyObject) {
-        var tipPercentages = [0.18, 0.2, 0.25]
-        var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        var billAmount =  NSString(string: billField.text).doubleValue
         
-        var billAmount = billField.text.bridgeToObjectiveC().doubleValue
-        var tip = billAmount * tipPercentage
-        var total = billAmount + tip
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        if (billAmount > 0) {
+        
+            animateContainer()
+        
+            var tipPercentages = [0.18, 0.2, 0.25]
+            var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        
+            var tip = billAmount * tipPercentage
+            var total = billAmount + tip
+            tipLabelValue.text = String(format: "$%.2f", tip)
+            totalLabel.text = String(format: "$%.2f", total)
+        } else {
+            initForAnimations()
+        }
     }
     
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
+    }
+    
+    func initForAnimations() {
+        self.container.alpha = 0
+    }
+    
+    func animateContainer() {
+        self.container.alpha = 1
     }
 
 
