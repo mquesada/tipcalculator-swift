@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         var defaultTipIndex = defaults.integerForKey("defaultTipIndex")
         tipControl.selectedSegmentIndex = defaultTipIndex
         
-        initForAnimations()
-        
+        // Hide container view for animations
+        hideContainerAnimation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,19 +38,17 @@ class ViewController: UIViewController {
     @IBAction func onEditingChange(sender: AnyObject) {
         var billAmount =  NSString(string: billField.text).doubleValue
         
+        // Calculate tip only if bill amount is greater than 0
         if (billAmount > 0) {
+            // Show view container with animation
+            showContainerAnimation()
+            
+            // Calculate tip and total
+            calculateTipAndTotal(billAmount)
         
-            animateContainer()
-        
-            var tipPercentages = [0.18, 0.2, 0.25]
-            var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        
-            var tip = billAmount * tipPercentage
-            var total = billAmount + tip
-            tipLabelValue.text = String(format: "$%.2f", tip)
-            totalLabel.text = String(format: "$%.2f", total)
         } else {
-            initForAnimations()
+            // Hide container view with animation
+            hideContainerAnimation()
         }
     }
     
@@ -58,11 +56,24 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func initForAnimations() {
+    /* Calculates the tip and total given a bill amount */
+    func calculateTipAndTotal(billAmount: Double) {
+        var tipPercentages = [0.18, 0.2, 0.25]
+        var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+    
+        var tip = billAmount * tipPercentage
+        var total = billAmount + tip
+        
+        tipLabelValue.text = String(format: "$%.2f", tip)
+        totalLabel.text = String(format: "$%.2f", total)
+    
+    }
+    
+    func hideContainerAnimation() {
         self.container.alpha = 0
     }
     
-    func animateContainer() {
+    func showContainerAnimation() {
         self.container.alpha = 1
     }
 
